@@ -4,7 +4,7 @@ export const theme = {
 	primaryDark: '#2B3A42',
 	primary: '#405865',
 	primaryLight: '#BED3DD',
-	accent: '#FD8F25',
+	accent: '#EF62A4',
 	themeWhite: 'white',
 	white: 'white',
 	roboto: "'Roboto', sans-serif",

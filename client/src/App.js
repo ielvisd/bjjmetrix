@@ -29,7 +29,7 @@ const App = props => {
 			<div>
 				<Route path="/" render={props => <Navigation {...props} />} />
 				<StyledApp>
-					{/* <Route exact path="/" render={props => <LandingPage {...props} />} /> */}
+					<Route exact path="/" render={props => <LandingPage {...props} />} />
 					{/* <Route
             exact
             path="/login"
