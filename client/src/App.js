@@ -14,8 +14,8 @@ import Navigation from './components/Navigation';
 // const WorkoutsView = lazy(() => import('./components/WorkoutsView'));
 // const ScheduleView = lazy(() => import('./components/ScheduleView'));
 // const ProgressView = lazy(() => import('./components/ProgressView'));
-// const Login = lazy(() => import('./components/Login'));
-// const Register = lazy(() => import('./components/Register'));
+const Login = lazy(() => import('./Views/Login'));
+const Register = lazy(() => import('./Views/Register'));
 // const MainSettingsView = lazy(() => import('./components/SettingsView/MainSettings'));
 // const ForgotPassword = lazy(() => import('./components/ForgotPassword'));
 // const PasswordReset = lazy(() => import('./components/PasswordReset'));
@@ -30,25 +30,29 @@ const App = props => {
 				<Route path="/" render={props => <Navigation {...props} />} />
 				<StyledApp>
 					<Route exact path="/" render={props => <LandingPage {...props} />} />
+					<Route
+						exact
+						path="/login"
+						render={props => (
+							<Suspense
+								fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}
+							>
+								<Login {...props} />
+							</Suspense>
+						)}
+					/>
+					<Route
+						exact
+						path="/register"
+						render={props => (
+							<Suspense
+								fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}
+							>
+								<Register {...props} />
+							</Suspense>
+						)}
+					/>
 					{/* <Route
-            exact
-            path="/login"
-            render={props => (
-              <Suspense fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}>
-                <Login {...props} />
-              </Suspense>
-            )}
-          />
-          <Route
-            exact
-            path="/register"
-            render={props => (
-              <Suspense fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}>
-                <Register {...props} />
-              </Suspense>
-            )}
-          />
-          <Route
             exact
             path="/schedule"
             render={props => (
@@ -56,8 +60,8 @@ const App = props => {
                 <ScheduleView dispatch={dispatch} user={state} {...props} />
               </Suspense>
             )}
-          />
-          <Route
+          /> */}
+					{/* <Route
             exact
             path="/progress"
             render={props => (
@@ -65,9 +69,9 @@ const App = props => {
                 <ProgressView {...props} />
               </Suspense>
             )}
-          />
+          /> */}
 
-          <Route
+					{/* <Route
             exact
             path="/workouts"
             render={props => (
@@ -75,9 +79,9 @@ const App = props => {
                 <WorkoutsView {...props} />
               </Suspense>
             )}
-          />
+          /> */}
 
-          <Route
+					{/* <Route
             exact
             path="/settings"
             render={props => (
@@ -85,9 +89,9 @@ const App = props => {
                 <MainSettingsView dispatch={dispatch} user={state} {...props} />
               </Suspense>
             )}
-          />
+          /> */}
 
-          <Route
+					{/* <Route
             exact
             path="/forgot"
             render={props => (
@@ -95,9 +99,9 @@ const App = props => {
                 <ForgotPassword {...props} />
               </Suspense>
             )}
-          />
+          /> */}
 
-          <Route
+					{/* <Route
             path="/reset/"
             render={props => (
               <Suspense fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}>
