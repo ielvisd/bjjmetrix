@@ -39,9 +39,9 @@ const Navigation = props => {
 
 		return (
 			<NavStyle isApp="true">
-				<Logo to="/">FLEXLOG</Logo>
+				<Logo to="/">jiujitsio</Logo>
 				<NavBar>
-					<StyledLink to="/schedule" activeClassName="active">
+					{/* <StyledLink to="/schedule" activeClassName="active">
 						<i className="far fa-calendar-alt" />
 						<span>Schedule</span>
 					</StyledLink>
@@ -52,7 +52,7 @@ const Navigation = props => {
 					<StyledLink to="/progress" activeClassName="active">
 						<i className="fas fa-chart-line" />
 						<span>Progress</span>
-					</StyledLink>
+					</StyledLink> */}
 					<StyledLink to="/settings" activeClassName="active">
 						<i className="fas fa-user" />
 						<span>Account</span>

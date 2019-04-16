@@ -26,6 +26,7 @@ module.exports = {
 			max: 10
 		},
 		migrations: { directory: './database/migrations' },
+		ssl: true,
 		seeds: { directory: './database/seeds' }
 	}
 };
