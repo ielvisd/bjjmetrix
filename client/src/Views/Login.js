@@ -27,18 +27,18 @@ const Login = props => {
 				console.log(res);
 				res.user.getIdToken().then(idToken => {
 					window.localStorage.setItem('login_token', idToken);
-					// axios
-					// 	.get('https://fitmetrix.herokuapp.com/api/user', {
-					// 		headers: { Authorization: idToken }
-					// 	})
-					// .then(res => {
-					console.log(res.data);
-					dispatch({ type: 'USER_MODEL', payload: res.data });
-					dispatch({ type: 'USER_JUST_REGISTERED', payload: false });
-					dispatch({ type: 'PASSWORD_RESET' });
-					setLoading(false);
-					props.history.push('/workouts');
-					// });
+					axios
+						.get('https://jijitsio.herokuapp.com/api/user', {
+							headers: { Authorization: idToken }
+						})
+						.then(res => {
+							console.log(res.data);
+							dispatch({ type: 'USER_MODEL', payload: res.data });
+							dispatch({ type: 'USER_JUST_REGISTERED', payload: false });
+							dispatch({ type: 'PASSWORD_RESET' });
+							setLoading(false);
+							props.history.push('/workouts');
+						});
 				});
 			})
 			.catch(error => {

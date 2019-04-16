@@ -33,14 +33,14 @@ const Register = props => {
 				.then(res => {
 					res.user
 						.getIdToken()
-						// .then(token => {
-						// 	console.log(email, name, token);
-						// 	axios.post(
-						// 		'https://fitmetrix.herokuapp.com/auth/register',
-						// 		{ email, name },
-						// 		{ headers: { Authorization: token } }
-						// 	);
-						// })
+						.then(token => {
+							console.log(email, name, token);
+							axios.post(
+								'https://jiujitsio.herokuapp.com/auth/register',
+								{ email, name },
+								{ headers: { Authorization: token } }
+							);
+						})
 						.then(() => {
 							dispatch({ type: 'USER_JUST_REGISTERED', payload: true });
 							setLoading(false);
