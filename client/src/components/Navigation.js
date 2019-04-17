@@ -28,7 +28,6 @@ const Navigation = props => {
 						jiujitsio
 					</Logo>
 					<NavBar className="NavBar">
-						>
 						<StyledLink to="/login" activeClassName="active" landing="true">
 							Login
 						</StyledLink>
