@@ -12,45 +12,51 @@ const LandingPage = () => {
 	const callToAction = 'Track your jiu-jitsu journey with us.';
 
 	return (
-		<LandingContainer>
-			<LandingStyle>
-				<BackgroundImage />
-				<CtaDiv>
-					<CallToAction>
-						<Action>{preCallToAction}</Action>
-						<Action>{callToAction}</Action>
-						<Link to={localStorage.getItem('login_token') ? '/schedule' : '/register'}>
-							<Button>START TRACKING NOW</Button>
-						</Link>
-						<Arrow href="#middle">
-							<ArrowDiv>
-								<i class="fas fa-chevron-down" />
-							</ArrowDiv>
-						</Arrow>
-					</CallToAction>
-				</CtaDiv>
-			</LandingStyle>
+		<React.Fragment>
+			<LandingContainer className="LandingContainer">
+				<LandingStyle className="LandingStyle">
+					<BackgroundImage className="BackgroundImage" />
+					<CtaDiv className="CtaDiv">
+						<CallToAction className="CallToAction">
+							<Action className="Action">{preCallToAction}</Action>
+							<Action className="Action">{callToAction}</Action>
+							<Link to={localStorage.getItem('login_token') ? '/schedule' : '/register'}>
+								<Button className="Button">START TRACKING NOW</Button>
+							</Link>
+							<Arrow className="Arrow" href="#middle">
+								<ArrowDiv className="ArrowDiv">
+									<i class="fas fa-chevron-down" />
+								</ArrowDiv>
+							</Arrow>
+						</CallToAction>
+					</CtaDiv>
+				</LandingStyle>
+			</LandingContainer>
 
-			<Part2 id="middle">
+			<Part2 className="Part2" id="middle">
 				{/* <CalendarPic src={CalendarView} alt="A picture of the calendar view." /> */}
-				<CalendarDemo>Schedule & track your training sessions.</CalendarDemo>
+				<CalendarDemo className="Part2">Schedule & track your training sessions.</CalendarDemo>
 			</Part2>
-			<Part3>
-				<TechniqueDemo>Take notes on techniques you learned, share with friends.</TechniqueDemo>
+			<Part3 className="Part3">
+				<TechniqueDemo className="Part2">
+					Take notes on techniques you learned, share with friends.
+				</TechniqueDemo>
 				{/* <WorkoutPic src={WorkoutsView} alt="A picture of the workouts view." /> */}
 			</Part3>
-			<Part2 id="middle">
+			<Part2 className="Part2" id="middle">
 				{/* <ProgressPic src={ProgressView} alt="A picture of the progress view." /> */}
-				<CalendarDemo>Keep track of your sparring sessions.</CalendarDemo>
+				<CalendarDemo className="CalendarDemo">Keep track of your sparring sessions.</CalendarDemo>
 			</Part2>
 			<Part3>
-				<TechniqueDemo>See your jiu-jitsu stats and learn from your mistakes.</TechniqueDemo>
+				<TechniqueDemo className="TechniqueDemo">
+					See your jiu-jitsu stats and learn from your mistakes.
+				</TechniqueDemo>
 				{/* <WorkoutPic src={WorkoutsView} alt="A picture of the workouts view." /> */}
 			</Part3>
-			<Part5>
+			<Part5 className="Part5">
 				<p>Copyright 2019 jiujitsio. All rights reserved.</p>
 			</Part5>
-		</LandingContainer>
+		</React.Fragment>
 	);
 };
 
@@ -58,7 +64,6 @@ export default LandingPage;
 
 const LandingStyle = styled.div`
 	width: 100%;
-	max-width: 960px;
 	height: calc(100vh - 54px);
 	min-height: 900px;
 	color: white;
@@ -128,7 +133,7 @@ const Action = styled.div`
 const BackgroundImage = styled.span`
 	width: 100%;
 	height: 100%;
-	min-height: 500px;
+	/* min-height: 500px; */
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -174,10 +179,9 @@ const CallToAction = styled.div`
 `;
 
 const Part2 = styled.div`
-	width: 100%;
 	margin: 0 auto;
+	width: 100%;
 	height: auto;
-	padding: 50px;
 	background-color: #f5f5f5;
 	font-size: 3.3rem;
 	display: flex;
@@ -225,9 +229,8 @@ const CalendarDemo = styled.div`
 `;
 
 const Part3 = styled.div`
-	width: 100%;
 	height: auto;
-	padding: 50px;
+	width: 100%;
 	background-color: white;
 	font-size: 3.3rem;
 	display: flex;
@@ -246,9 +249,8 @@ const Part3 = styled.div`
 `;
 
 const Part5 = styled.div`
-	width: 100%;
 	height: auto;
-	padding: 50px;
+	width: 100%;
 	background-color: white;
 	font-size: 1.3rem;
 	display: flex;
@@ -351,4 +353,6 @@ const ProgressPic = styled.img`
 
 const LandingContainer = styled.div`
 	width: 100%;
+	/* border: solid blue; */
+	max-width: 1280px;
 `;

@@ -23,9 +23,12 @@ const Navigation = props => {
 			!window.localStorage.getItem('login_token')
 		) {
 			return (
-				<NavStyle>
-					<Logo to="/">jiujitsio</Logo>
-					<NavBar>
+				<NavStyle className="NavStyle">
+					<Logo className="Logo" to="/">
+						jiujitsio
+					</Logo>
+					<NavBar className="NavBar">
+						>
 						<StyledLink to="/login" activeClassName="active" landing="true">
 							Login
 						</StyledLink>
@@ -38,18 +41,20 @@ const Navigation = props => {
 		}
 
 		return (
-			<NavStyle isApp="true">
-				<Logo to="/">jiujitsio</Logo>
+			<NavStyle className="NavStyle" isApp="true">
+				<Logo className="Logo" to="/">
+					jiujitsio
+				</Logo>
 				<NavBar>
-					{/* <StyledLink to="/schedule" activeClassName="active">
+					<StyledLink to="/schedule" activeClassName="active">
 						<i className="far fa-calendar-alt" />
 						<span>Schedule</span>
 					</StyledLink>
-					<StyledLink to="/workouts" activeClassName="active">
+					{/* <StyledLink to="/workouts" activeClassName="active">
 						<i className="fas fa-dumbbell" />
 						<span>Workouts</span>
-					</StyledLink>
-					<StyledLink to="/progress" activeClassName="active">
+					</StyledLink> */}
+					{/* <StyledLink to="/progress" activeClassName="active">
 						<i className="fas fa-chart-line" />
 						<span>Progress</span>
 					</StyledLink> */}
@@ -62,20 +67,21 @@ const Navigation = props => {
 		);
 	};
 
-	return <NavContainer>{renderRoutes()}</NavContainer>;
+	return <NavContainer className="NavContainer">{renderRoutes()}</NavContainer>;
 };
 
 export default Navigation;
 
 const NavContainer = styled.div`
+	/* border: solid purple; */
 	height: 72px;
 	width: 100%;
+	/* max-width: 1280px; */
 	background-color: ${props => props.theme.primaryDark};
 	color: ${props => props.theme.white};
 	z-index: 3;
 	position: fixed;
 	top: 0;
-	left: 0;
 	margin: 0 auto;
 	overflow: hidden;
 `;
@@ -140,6 +146,7 @@ const Logo = styled(Link)`
 	color: ${props => props.theme.accent};
 	text-decoration: none;
 	user-select: none;
+	padding-left: 10%;
 `;
 
 const NavBar = styled.div`
@@ -151,4 +158,5 @@ const NavBar = styled.div`
 		width: 100%;
 		justify-content: space-evenly;
 	}
+	padding-right: 10%;
 `;

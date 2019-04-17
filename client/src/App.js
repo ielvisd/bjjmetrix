@@ -26,10 +26,11 @@ const App = props => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<div>
-				<Route path="/" render={props => <Navigation {...props} />} />
-				<StyledApp>
-					<Route exact path="/" render={props => <LandingPage {...props} />} />
+			<React.Fragment>
+				<Route path="/" render={props => <Navigation className="Navigation" {...props} />} />
+
+				<StyledApp className="StyledApp">
+					<Route exact path="/" render={props => <LandingPage className="LandingPage" {...props} />} />
 					<Route
 						exact
 						path="/login"
@@ -37,7 +38,7 @@ const App = props => {
 							<Suspense
 								fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}
 							>
-								<Login {...props} />
+								<Login className="Login" {...props} />
 							</Suspense>
 						)}
 					/>
@@ -48,7 +49,7 @@ const App = props => {
 							<Suspense
 								fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}
 							>
-								<Register {...props} />
+								<Register className="Register" {...props} />
 							</Suspense>
 						)}
 					/>
@@ -110,7 +111,7 @@ const App = props => {
             )}
           /> */}
 				</StyledApp>
-			</div>
+			</React.Fragment>
 		</ThemeProvider>
 	);
 };
@@ -118,7 +119,7 @@ export default App;
 
 const StyledApp = styled.div`
 	text-align: center;
-	width: 100%;
+	/* max-width: 1280px; */
 	margin: 0 auto;
 	font-size: 62.5%;
 	font-size: 1.2rem;
