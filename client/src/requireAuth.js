@@ -24,7 +24,7 @@ export default ComposedComponent => {
 
 			if (state.uid !== decoded.user_id) {
 				axios
-					.get('https://fitmetrix.herokuapp.com/api/user', {
+					.get('https://jiujitsio.herokuapp.com/api/user', {
 						headers: { Authorization: token }
 					})
 					.then(res => {
