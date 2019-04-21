@@ -28,7 +28,7 @@ const Login = props => {
 				res.user.getIdToken().then(idToken => {
 					window.localStorage.setItem('login_token', idToken);
 					axios
-						.get('https://jijitsio.herokuapp.com/api/user', {
+						.get('https://jiujitsio.herokuapp.com/api/user', {
 							headers: { Authorization: idToken }
 						})
 						.then(res => {
