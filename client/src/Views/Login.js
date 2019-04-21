@@ -37,7 +37,7 @@ const Login = props => {
 							dispatch({ type: 'USER_JUST_REGISTERED', payload: false });
 							dispatch({ type: 'PASSWORD_RESET' });
 							setLoading(false);
-							props.history.push('/workouts');
+							props.history.push('/techniques');
 						});
 				});
 			})

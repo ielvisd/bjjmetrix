@@ -11,7 +11,7 @@ import LandingPage from './Views/LandingPage';
 import Navigation from './components/Navigation';
 
 // Components Imported Using React Lazy
-// const WorkoutsView = lazy(() => import('./components/WorkoutsView'));
+const TechniquesView = lazy(() => import('./Views/Techniques'));
 // const ScheduleView = lazy(() => import('./components/ScheduleView'));
 // const ProgressView = lazy(() => import('./components/ProgressView'));
 const Login = lazy(() => import('./Views/Login'));
@@ -72,15 +72,17 @@ const App = props => {
             )}
           /> */}
 
-					{/* <Route
-            exact
-            path="/workouts"
-            render={props => (
-              <Suspense fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}>
-                <WorkoutsView {...props} />
-              </Suspense>
-            )}
-          /> */}
+					<Route
+						exact
+						path="/techniques"
+						render={props => (
+							<Suspense
+								fallback={<Loader type="Ball-Triangle" color="#FD8F25" height="180" width="120" />}
+							>
+								<TechniquesView {...props} />
+							</Suspense>
+						)}
+					/>
 
 					{/* <Route
             exact
