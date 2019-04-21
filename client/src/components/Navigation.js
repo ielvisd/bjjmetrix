@@ -49,10 +49,10 @@ const Navigation = props => {
 						<i className="far fa-calendar-alt" />
 						<span>Schedule</span>
 					</StyledLink>
-					{/* <StyledLink to="/workouts" activeClassName="active">
+					<StyledLink to="/techniques" activeClassName="active">
 						<i className="fas fa-dumbbell" />
-						<span>Workouts</span>
-					</StyledLink> */}
+						<span>Techniques</span>
+					</StyledLink>
 					{/* <StyledLink to="/progress" activeClassName="active">
 						<i className="fas fa-chart-line" />
 						<span>Progress</span>
