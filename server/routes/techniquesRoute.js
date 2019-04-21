@@ -126,11 +126,11 @@ router.post('/', async (req, res) => {
 			user_id: userId
 		};
 		//Insert Obj into techniquetable to create the techniqueID
-		const addtechnique= await db('technique')
+		const addtechnique = await db('technique')
 			.returning('id')
 			.insert(insertObj);
 
-		const technique= {
+		const technique = {
 			...insertObj,
 			id: addtechnique[0]
 		};
@@ -168,13 +168,13 @@ router.put('/edit', async (req, res) => {
 
 	try {
 		//Create object from req.body data and user_id
-		const edittechnique= {
+		const edittechnique = {
 			title: body.title,
 			category_id: body.category_id
 		};
 
 		//Update technique table with new edittechniqueobject
-		const updatedtechnique= await db('technique')
+		const updatedtechnique = await db('technique')
 			.where('id', '=', techniqueID)
 			.update(edittechnique);
 
@@ -201,7 +201,7 @@ router.put('/edit', async (req, res) => {
 
 		let techniqueArray = [];
 
-		for (const techniqueof technique) {
+		for (const technique of technique) {
 			//gets exercises that for the corresponding technique
 			const exercises = await db('exercises').where('technique_id', '=', technique.id);
 			const category = await db('category').where('id', '=', technique.category_id);
