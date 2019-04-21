@@ -50,7 +50,7 @@ const Navigation = props => {
 						<span>Schedule</span>
 					</StyledLink>
 					<StyledLink to="/techniques" activeClassName="active">
-						<i className="fas fa-dumbbell" />
+						<i className="fas fa-flask" />
 						<span>Techniques</span>
 					</StyledLink>
 					{/* <StyledLink to="/progress" activeClassName="active">
