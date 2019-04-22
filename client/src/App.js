@@ -1,5 +1,6 @@
 import React, { Suspense, useContext, lazy } from 'react';
 import Loader from 'react-loader-spinner';
+import ReactGA from 'react-ga';
 
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from './StyleTheme';
@@ -19,6 +20,11 @@ const Register = lazy(() => import('./Views/Register'));
 // const MainSettingsView = lazy(() => import('./components/SettingsView/MainSettings'));
 // const ForgotPassword = lazy(() => import('./components/ForgotPassword'));
 // const PasswordReset = lazy(() => import('./components/PasswordReset'));
+
+function initializeReactGA() {
+	ReactGA.initialize('UA-138753824-1');
+	ReactGA.pageview('/');
+}
 
 const App = props => {
 	// Similar to componentDidMount and componentDidUpdate:
