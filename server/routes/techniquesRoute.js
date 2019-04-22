@@ -201,6 +201,8 @@ router.put('/edit', async (req, res) => {
 
 		let techniqueArray = [];
 
+		//test
+
 		for (const technique of technique) {
 			//gets exercises that for the corresponding technique
 			const exercises = await db('exercises').where('technique_id', '=', technique.id);
