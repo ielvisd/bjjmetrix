@@ -23,7 +23,7 @@ const Register = lazy(() => import('./Views/Register'));
 
 function initializeReactGA() {
 	ReactGA.initialize('UA-138753824-1');
-	ReactGA.pageview('/');
+	ReactGA.pageview(window.location.pathname + window.location.search);
 }
 
 const App = props => {
