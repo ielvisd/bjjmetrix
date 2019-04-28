@@ -120,7 +120,7 @@ router.get('/', async (req, res) => {
 				exercises: [...exercises],
 				category: category[0]
 			};
-			techniquesArray.push(workObj);
+			techniquesArray.push(techObj);
 		}
 
 		const sWorkouts = await db('schedule_workouts').where('user_id', '=', userId);
