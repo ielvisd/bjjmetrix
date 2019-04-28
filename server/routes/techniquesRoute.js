@@ -7,7 +7,7 @@ router.get('/all', async (req, res) => {
 	try {
 		const alltechnique = await db
 			.select('*')
-			.from('technique')
+			.from('techniques')
 			.leftJoin('exercises', 'technique.id', 'exercises.technique_id')
 			.reduce((technique, current) => {
 				const { user_id, category_id, title, technique_id } = current;
@@ -52,7 +52,7 @@ router.get('/all', async (req, res) => {
 //Get all technique (no exercises) TEST
 router.get('/all/technique', async (req, res) => {
 	try {
-		const alltechnique = await db('technique');
+		const alltechnique = await db('techniques');
 
 		res.status(200).json(alltechnique);
 		//I believe we need to add the technique that come with the technique here
@@ -83,7 +83,7 @@ router.get('/all/exercises', async (req, res) => {
 router.get('/', async (req, res) => {
 	try {
 		//use the user ID to pull the technique associated with the user
-		const technique = await db('technique').where('user_id', '=', req.id);
+		const technique = await db('techniques').where('user_id', '=', req.id);
 		console.log(technique);
 
 		if (!technique[0]) {
@@ -126,7 +126,7 @@ router.post('/', async (req, res) => {
 			user_id: userId
 		};
 		//Insert Obj into techniquetable to create the techniqueID
-		const addtechnique = await db('technique')
+		const addtechnique = await db('techniques')
 			.returning('id')
 			.insert(insertObj);
 
@@ -174,7 +174,7 @@ router.put('/edit', async (req, res) => {
 		};
 
 		//Update technique table with new edittechniqueobject
-		const updatedtechnique = await db('technique')
+		const updatedtechnique = await db('techniques')
 			.where('id', '=', techniqueID)
 			.update(edittechnique);
 
@@ -197,7 +197,7 @@ router.put('/edit', async (req, res) => {
 			}
 		}
 
-		const technique = await db('technique').where('id', '=', techniqueID);
+		const technique = await db('techniques').where('id', '=', techniqueID);
 
 		let techniqueArray = [];
 
@@ -283,7 +283,7 @@ router.delete('/exercise/delete/:id', async (req, res) => {
 //Delete technique
 router.delete('/delete/:id', async (req, res) => {
 	try {
-		const deletetechniqueData = await db('technique')
+		const deletetechniqueData = await db('techniques')
 			.where('id', '=', req.params.id)
 			.del();
 		{
