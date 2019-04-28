@@ -1,11 +1,11 @@
 const defaultRoute = require('../routes/defaultRoute');
 const userRoute = require('../routes/usersRoute');
-// const metricRoute = require("../routes/metricRoute");
+const metricRoute = require('../routes/metricRoute');
 const techniquesRoute = require('../routes/techniquesRoute');
-// const categoryRoute = require("../routes/categoryRoute");
+const categoryRoute = require('../routes/categoryRoute');
 const authRoute = require('../routes/authRoute');
-// const scheduleWorkoutsRoute = require("../routes/scheduleWorkoutsRoute");
-// const stripeRoute = require("../routes/stripeRoutes");
+const scheduleWorkoutsRoute = require('../routes/scheduleWorkoutsRoute');
+const stripeRoute = require('../routes/stripeRoutes');
 
 const authenticate = require('./authenticate');
 
