@@ -13,11 +13,11 @@ module.exports = server => {
 	server.use('/alive', defaultRoute);
 	server.use('/auth', authenticate, authRoute);
 	server.use('/api/user', authenticate, userRoute);
-	// server.use("/api/progress", authenticate, metricRoute);
+	server.use('/api/progress', authenticate, metricRoute);
 	server.use('/api/techniques', authenticate, techniquesRoute);
-	// server.use("/api/category", authenticate, categoryRoute);
-	// server.use("/api/schedule", authenticate, scheduleWorkoutsRoute);
-	// server.use("/api/settings/payment", stripeRoute);
+	server.use('/api/category', authenticate, categoryRoute);
+	server.use('/api/schedule', authenticate, scheduleWorkoutsRoute);
+	server.use('/api/settings/payment', stripeRoute);
 	server.use('*', (req, res) => {
 		res.status(404).json({ message: 'route not found' });
 	});
