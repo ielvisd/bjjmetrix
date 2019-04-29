@@ -17,12 +17,21 @@ const initialState = {
 	phone: '',
 	premium: false,
 	recieves_email: false,
-	recieves_text: false
+	recieves_text: false,
+	uid: '',
+	userJustRegistered: false,
+	passwordReset: false
 };
 
 // Reducer Functions used to update State
 const reducer = (state, action) => {
 	switch (action.type) {
+		case 'USER_MODEL':
+			return { ...state, ...action.payload };
+		case 'USER_JUST_REGISTERED':
+			return { ...state, userJustRegistered: action.payload };
+		case 'PASSWORD_RESET':
+			return { ...state, passwordReset: !state.passwordReset };
 		default:
 			return state;
 	}
