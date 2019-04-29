@@ -106,44 +106,44 @@ router.get('/', async (req, res) => {
 
 		const userInfo = await db('users').where('id', '=', userId);
 
-		const userCategories = await db('category').where('user_id', '=', userId);
+		// const userCategories = await db('category').where('user_id', '=', userId);
 
-		const metrics = await db('metrics').where('user_id', '=', userId);
+		// const metrics = await db('metrics').where('user_id', '=', userId);
 
-		const techniques = await db('techniques').where('user_id', '=', userId);
-		let techniquesArray = [];
-		for (const technique of techniques) {
-			const exercises = await db('exercises').where('technique_id', '=', technique.id);
-			const category = await db('category').where('id', '=', technique.category_id);
-			const techObj = {
-				...technique,
-				exercises: [...exercises],
-				category: category[0]
-			};
-			techniquesArray.push(techObj);
-		}
+		// const techniques = await db('techniques').where('user_id', '=', userId);
+		// let techniquesArray = [];
+		// for (const technique of techniques) {
+		// 	const exercises = await db('exercises').where('technique_id', '=', technique.id);
+		// 	const category = await db('category').where('id', '=', technique.category_id);
+		// 	const techObj = {
+		// 		...technique,
+		// 		exercises: [...exercises],
+		// 		category: category[0]
+		// 	};
+		// 	techniquesArray.push(techObj);
+		// }
 
-		const sWorkouts = await db('schedule_workouts').where('user_id', '=', userId);
+		// const sWorkouts = await db('schedule_workouts').where('user_id', '=', userId);
 
-		let sWorkoutsArray = [];
-		for (const workout of sWorkouts) {
-			const exercises = await db('schedule_exercises').where('schedule_workout_id', '=', workout.id);
-			const category = await db('category').where('id', '=', workout.category_id);
-			const workObj = {
-				...workout,
-				exercises: [...exercises],
-				category: category[0]
-			};
-			sWorkoutsArray.push(workObj);
-		}
+		// let sWorkoutsArray = [];
+		// for (const workout of sWorkouts) {
+		// 	const exercises = await db('schedule_exercises').where('schedule_workout_id', '=', workout.id);
+		// 	const category = await db('category').where('id', '=', workout.category_id);
+		// 	const workObj = {
+		// 		...workout,
+		// 		exercises: [...exercises],
+		// 		category: category[0]
+		// 	};
+		// 	sWorkoutsArray.push(workObj);
+		// }
 		// console.log(sWorkoutsArray);
 
 		const userObj = {
-			...userInfo[0],
-			metrics,
-			category: userCategories,
-			workouts: workoutsArray,
-			scheduleWorkouts: sWorkoutsArray
+			...userInfo[0]
+			// metrics,
+			// category: userCategories,
+			// workouts: workoutsArray,
+			// scheduleWorkouts: sWorkoutsArray
 		};
 
 		res.status(200).json(userObj);
