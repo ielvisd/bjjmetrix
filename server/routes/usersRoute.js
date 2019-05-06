@@ -106,9 +106,9 @@ router.get('/', async (req, res) => {
 
 		const userInfo = await db('users').where('id', '=', userId);
 
-		// const userCategories = await db('category').where('user_id', '=', userId);
+		const userCategories = await db('category').where('user_id', '=', userId);
 
-		// const metrics = await db('metrics').where('user_id', '=', userId);
+		const metrics = await db('metrics').where('user_id', '=', userId);
 
 		// const techniques = await db('techniques').where('user_id', '=', userId);
 		// let techniquesArray = [];
@@ -139,9 +139,9 @@ router.get('/', async (req, res) => {
 		// console.log(sWorkoutsArray);
 
 		const userObj = {
-			...userInfo[0]
-			// metrics,
-			// category: userCategories,
+			...userInfo[0],
+			metrics,
+			category: userCategories
 			// workouts: workoutsArray,
 			// scheduleWorkouts: sWorkoutsArray
 		};
