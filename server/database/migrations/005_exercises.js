@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
 	return knex.schema.createTable('exercises', function(tbl) {
 		tbl.increments();
-		tbl.biginteger('workout_id')
+		tbl.biginteger('technique_id')
 			.unsigned()
 			.notNullable()
 			.references('id')
